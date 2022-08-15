@@ -50,7 +50,7 @@ function Survey() {
   const preparedFormFields = (question, i) => {
     if(question.questionType === 'text'){
       return (
-        <label key ={i}>
+        <label key ={i} className="review-label">
           {question.label}
           <input type="text" value={filmReview.answer} id={question.questionId} onChange={handleChange} required={question.required} />
         </label>
@@ -83,11 +83,11 @@ function Survey() {
           <div>
             <h3>{survey.attributes.title}</h3>
             <div dangerouslySetInnerHTML={{__html: sanitize(survey.attributes.description)}} />
-            <form onSubmit={handleSubmit}>
+            <form className="survey-form" onSubmit={handleSubmit}>
               {survey.attributes.questions.map((question, i) => {
                 return preparedFormFields(question, i)
               })}
-              <input type="submit" value="Send" disabled={!(filmReview.answer && filmRating.answer && !success && !fail)} />
+              <input className="btn-form-submit" type="submit" value="Send" disabled={!(filmReview.answer && filmRating.answer && !success && !fail)} />
             </form>
           </div>
         }
