@@ -15,7 +15,7 @@ router.post("/:id/answers", (req, res) => {
     const id = req.params.id
     
     if(id == '2660dd24-e2db-42c1-8093-284b1df2664c') {
-        surveyRes201.data.attributes.answers.push(...req.body.data.attributes.answers)
+        surveyRes201.data.attributes.answers = [...req.body.data.attributes.answers]
         res.status(201).send(surveyRes201)
     }else{
         res.status(500).send(surveyRes500)

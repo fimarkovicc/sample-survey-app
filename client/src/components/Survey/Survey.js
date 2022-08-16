@@ -24,7 +24,7 @@ function Survey() {
     setFilmRating({answer: '', questionId: ''})
 
     const responseData = surveyResponseMock
-    responseData.data.attributes.answers.push(filmReview, filmRating)
+    responseData.data.attributes.answers = [filmReview, filmRating]
 
     fetch(`/api/v1/survey/${survey.id}/answers`, {
       method: 'POST',
